@@ -1,0 +1,31 @@
+BENSI LABS — BRAND KIT
+
+Primary name: BENSI LABS
+Positioning: AI Product Engineer / AI & Automation / Software Development
+
+Visual direction:
+- Dark, premium, futuristic technology aesthetic
+- Primary background: near-black
+- Primary text: white
+- Accent: electric blue to indigo gradient
+- Typography reference: Space Grotesk
+
+Core colors:
+- Electric Blue: #2563EB
+- Indigo: #7C3AED
+- Near Black: #0F1115
+- Graphite: #1C1F26
+- White: #EDEDED
+
+Files:
+01_bensi_labs_logo.png — primary logo on dark background
+02_bensi_labs_icon.png — icon/monogram on dark background
+03_bensi_labs_brand_board.png — visual identity reference board
+04_bensi_labs_icon_transparent.png — transparent icon for web/favicon/UI
+05_bensi_labs_logo_transparent.png — transparent logo for web use
+
+Recommended web usage:
+- Use the transparent icon for favicon, navbar mark and cards.
+- Use the transparent full logo for hero/footer where appropriate.
+- Keep generous clear space around the mark.
+- Prefer the dark version on light backgrounds only when contrast remains strong.

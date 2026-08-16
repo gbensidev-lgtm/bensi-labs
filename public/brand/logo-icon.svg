@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="156" height="94" viewBox="26 26 152 94">
+
+<defs>
+  <linearGradient id="brandGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#60A5FA"/>
+    <stop offset="50%" stop-color="#3B82F6"/>
+    <stop offset="100%" stop-color="#1D4ED8"/>
+  </linearGradient>
+  <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="5" result="blur"/>
+    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+</defs>
+
+
+
+<path d="M88 28
+         C58 28 34 44 28 67
+         C22 91 38 111 63 111
+         H111
+         C128 111 141 99 141 83
+         C141 67 129 57 112 57
+         H72
+         V75
+         H108
+         C114 75 119 78 119 84
+         C119 90 114 93 108 93
+         H66
+         C55 93 49 84 52 73
+         C55 61 67 51 84 51
+         H128
+         V33
+         H88 Z"
+      fill="url(#brandGradient)"/>
+<path d="M112 57
+         H142
+         C162 57 174 69 174 86
+         C174 104 160 117 140 117
+         H96
+         V99
+         H138
+         C146 99 152 94 152 87
+         C152 80 146 75 138 75
+         H112 Z"
+      fill="url(#brandGradient)"/>
+
+</svg>

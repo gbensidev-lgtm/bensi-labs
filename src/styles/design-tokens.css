@@ -1,0 +1,23 @@
+:root {
+  --color-primary: #2563EB;
+  --color-secondary: #7C3AED;
+  --color-accent: #7C3AED;
+  --color-background: #0F1115;
+  --color-surface: #1C1F26;
+  --color-border: #2A2F38;
+  --color-text: #EDEDED;
+  --color-muted: #9CA3AF;
+
+  --gradient-brand: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%);
+  --gradient-subtle: linear-gradient(
+    135deg,
+    rgba(37, 99, 235, 0.16),
+    rgba(124, 58, 237, 0.1)
+  );
+
+  --radius-card: 16px;
+  --radius-button: 10px;
+
+  --font-space-grotesk: "Space Grotesk", system-ui, sans-serif;
+  --font-jetbrains-mono: "JetBrains Mono", ui-monospace, monospace;
+}
