@@ -3,12 +3,10 @@
 import { motion } from "framer-motion";
 import { MagneticButton } from "@/components/MagneticButton";
 import { SectionHeading } from "@/components/SectionHeading";
-import { contactLinks } from "@/data/contact";
+import { contactLinks, whatsappLink } from "@/data/contact";
 import { easeOut, fadeUp, staggerContainer, viewportOnce } from "@/lib/motion";
 
 export function Contact() {
-  const emailLink = contactLinks.find((link) => link.label === "E-mail")?.href;
-
   return (
     <section id="contact" className="section-padding border-t border-border/50">
       <div className="container">
@@ -34,8 +32,8 @@ export function Contact() {
             transition={{ duration: 0.6, delay: 0.1, ease: easeOut }}
             className="mt-8 flex justify-center"
           >
-            <MagneticButton href={emailLink ?? "#contact"} variant="primary">
-              Entrar em contato →
+            <MagneticButton href={whatsappLink} variant="primary">
+              Conversar no WhatsApp →
             </MagneticButton>
           </motion.div>
 

@@ -58,11 +58,15 @@ export function MagneticButton({
     y.set(0);
   };
 
+  const isExternal = href.startsWith("http");
+
   return (
     <motion.div style={{ x: enabled ? springX : 0, y: enabled ? springY : 0 }}>
       <Link
         ref={ref}
         href={href}
+        target={isExternal ? "_blank" : undefined}
+        rel={isExternal ? "noopener noreferrer" : undefined}
         onClick={onClick}
         onMouseMove={handleMove}
         onMouseLeave={handleLeave}
