@@ -19,12 +19,12 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Bensi Labs — AI Product Engineer · Software · Data",
   description:
-    "Bensi Labs — Luiz Gustavo Bensi. Construindo soluções inteligentes com IA, dados e desenvolvimento de software.",
+    "Bensi Labs — Gustavo Bensi. Construindo soluções inteligentes com IA e dados.",
   metadataBase: new URL("https://bensilabs.dev"),
   openGraph: {
     title: "Bensi Labs — AI Product Engineer · Software · Data",
     description:
-      "Bensi Labs — Luiz Gustavo Bensi. Construindo soluções inteligentes com IA, dados e desenvolvimento de software.",
+      "Bensi Labs — Gustavo Bensi. Construindo soluções inteligentes com IA e dados.",
     type: "website",
     locale: "pt_BR",
     url: "https://bensilabs.dev",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Bensi Labs — AI Product Engineer · Software · Data",
     description:
-      "Bensi Labs — Luiz Gustavo Bensi. Construindo soluções inteligentes com IA, dados e desenvolvimento de software.",
+      "Bensi Labs — Gustavo Bensi. Construindo soluções inteligentes com IA e dados.",
   },
 };
 
@@ -46,9 +46,12 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={`${spaceGrotesk.variable} ${jetbrainsMono.variable}`}>
       <body className="bg-background font-sans text-foreground antialiased">
+        <a href="#conteudo" className="skip-link">
+          Ir para o conteúdo
+        </a>
         <CursorSpotlight />
         <Navbar />
-        <main>{children}</main>
+        <main id="conteudo">{children}</main>
       </body>
     </html>
   );

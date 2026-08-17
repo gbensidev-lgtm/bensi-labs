@@ -26,6 +26,7 @@
 
 html {
   scroll-behavior: smooth;
+  scrollbar-color: var(--color-border) var(--color-background);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -47,9 +48,26 @@ body {
   min-height: 100vh;
   background-color: var(--color-background);
   color: var(--color-text);
+  caret-color: var(--color-primary);
   font-family: var(--font-space-grotesk), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -5rem;
+  z-index: 80;
+  border-radius: var(--radius-button);
+  background: var(--color-surface);
+  padding: 0.65rem 1rem;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 1rem;
 }
 
 ::selection {

@@ -54,7 +54,7 @@ export function Footer() {
 
         <div className="mt-10 flex flex-col gap-2 border-t border-border/40 pt-6 md:flex-row md:items-center md:justify-between">
           <p className="text-sm text-muted">Construído com código, curiosidade e IA.</p>
-          <p className="font-mono text-[11px] tracking-[0.1em] text-muted/80">
+          <p className="font-mono text-[11px] tracking-[0.1em] text-muted">
             © 2026 Bensi Labs
           </p>
         </div>

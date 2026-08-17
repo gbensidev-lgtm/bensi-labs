@@ -59,7 +59,7 @@ function ProjectCardContent({
             transition={{ duration: 0.45, delay: 0.05, ease: easeOut }}
             className="font-mono text-xs tracking-[0.22em] text-primary uppercase md:text-sm"
           >
-            Project / {number}
+            Projeto / {number}
           </motion.span>
           <Badge status={project.status} />
         </div>
@@ -87,7 +87,7 @@ function ProjectCardContent({
         </div>
 
         <div className="mt-6 inline-flex items-center gap-2 font-mono text-xs tracking-[0.16em] text-primary uppercase transition-[gap,transform] duration-200 ease-out group-hover:gap-3">
-          Explorar projeto
+          {url && isExternalUrl(url) ? "Explorar projeto" : "Conversar sobre o projeto"}
           <span
             aria-hidden="true"
             className="transition-transform duration-200 group-hover:translate-x-1"
@@ -114,7 +114,11 @@ export function ProjectCard({ project, index, reversed = false }: ProjectCardPro
         href={project.url}
         target={external ? "_blank" : undefined}
         rel={external ? "noopener noreferrer" : undefined}
-        aria-label={`Explorar projeto ${project.title}`}
+        aria-label={
+          external
+            ? `Explorar projeto ${project.title}`
+            : `Conversar sobre o projeto ${project.title}`
+        }
         className={cn(className, "cursor-pointer")}
       >
         <ProjectCardContent project={project} index={index} reversed={reversed} />

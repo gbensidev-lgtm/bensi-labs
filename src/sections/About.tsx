@@ -66,12 +66,12 @@ export function About() {
               aprendendo em Estratégia e Desenvolvimento de Soluções de IA em
               software, dados e produtos digitais.
             </p>
-            <p className="mt-6 text-base leading-relaxed text-muted/90">
+            <p className="mt-6 text-base leading-relaxed text-muted">
               Hoje também trabalho com dashboards e análises em empresas, usando
               código, inteligência artificial e contexto de negócio para transformar
               problemas reais em soluções que funcionam.
             </p>
-            <p className="mt-6 text-base leading-relaxed text-muted/90">
+            <p className="mt-6 text-base leading-relaxed text-muted">
               Cada projeto é parte de um processo contínuo: planejar, construir,
               testar, publicar e evoluir. Não estou tentando parecer especialista em
               tudo; estou compartilhando o que estou realmente construindo na prática.

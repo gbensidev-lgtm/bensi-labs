@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 type SectionHeadingProps = {
   title: string;
   subtitle?: string;
+  subtitleClassName?: string;
   label?: string;
   className?: string;
   align?: "left" | "center";
@@ -11,6 +12,7 @@ type SectionHeadingProps = {
 export function SectionHeading({
   title,
   subtitle,
+  subtitleClassName,
   label,
   className,
   align = "left",
@@ -30,7 +32,14 @@ export function SectionHeading({
         {title}
       </h2>
       {subtitle && (
-        <p className="mt-4 text-base leading-relaxed text-muted md:text-lg">{subtitle}</p>
+        <p
+          className={cn(
+            "mt-4 text-base leading-relaxed text-muted md:text-lg",
+            subtitleClassName,
+          )}
+        >
+          {subtitle}
+        </p>
       )}
     </div>
   );

@@ -7,6 +7,8 @@ import { contactLinks, whatsappLink } from "@/data/contact";
 import { easeOut, fadeUp, staggerContainer, viewportOnce } from "@/lib/motion";
 
 export function Contact() {
+  const secondaryLinks = contactLinks.filter((link) => link.label !== "WhatsApp");
+
   return (
     <section id="contact" className="section-padding border-t border-border/50">
       <div className="container">
@@ -22,6 +24,7 @@ export function Contact() {
             align="center"
             title="Vamos construir algo."
             subtitle="Tem uma ideia, problema ou projeto? Vamos conversar."
+            subtitleClassName="text-foreground/70"
           />
 
           <motion.div
@@ -44,7 +47,7 @@ export function Contact() {
             variants={staggerContainer}
             className="mt-10 flex flex-wrap items-center justify-center gap-4 md:gap-6"
           >
-            {contactLinks.map((link) => (
+            {secondaryLinks.map((link) => (
               <motion.li key={link.label} variants={fadeUp}>
                 <a
                   href={link.href}

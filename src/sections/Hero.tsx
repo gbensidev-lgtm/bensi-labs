@@ -3,6 +3,7 @@
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { HeroVisual } from "@/components/HeroVisual";
 import { MagneticButton } from "@/components/MagneticButton";
+import { whatsappLink } from "@/data/contact";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 18 },
@@ -86,8 +87,8 @@ export function Hero() {
               <MagneticButton href="#projects" variant="primary">
                 Ver projetos
               </MagneticButton>
-              <MagneticButton href="#contact" variant="secondary">
-                Entrar em contato
+              <MagneticButton href={whatsappLink} variant="secondary">
+                Conversar no WhatsApp
               </MagneticButton>
             </motion.div>
 
