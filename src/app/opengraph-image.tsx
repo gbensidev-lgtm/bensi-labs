@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "Bensi Labs — AI Product Engineer · Software · Data";
+export const alt = "Bensi Labs — Sites, Aplicações, IA e Automação";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -43,10 +43,10 @@ export default function OpenGraphImage() {
               letterSpacing: "-0.03em",
             }}
           >
-            Construindo soluções inteligentes com IA e dados.
+            Transformamos ideias em produtos digitais.
           </div>
           <div style={{ fontSize: 26, lineHeight: 1.5, color: "#9CA3AF" }}>
-            Desenvolvimento de software, dashboards e produtos digitais.
+            Sites, landing pages, aplicações e soluções com IA e automação.
           </div>
         </div>
 
@@ -61,7 +61,7 @@ export default function OpenGraphImage() {
             textTransform: "uppercase",
           }}
         >
-          <span>AI Product Engineer</span>
+          <span>AI Product Studio</span>
           <span>bensilabs.dev</span>
         </div>
       </div>

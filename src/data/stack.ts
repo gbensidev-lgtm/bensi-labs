@@ -10,7 +10,7 @@ export const stackCategories: StackCategory[] = [
   },
   {
     title: "IA",
-    items: ["LLMs", "Engenharia de prompt", "Cursor", "APIs de IA"],
+    items: ["LLMs", "APIs de IA", "Cursor"],
   },
   {
     title: "Ferramentas",

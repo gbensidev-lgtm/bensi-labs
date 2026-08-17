@@ -17,7 +17,11 @@ export function Stack() {
           variants={fadeUp}
           transition={{ duration: 0.6, ease: easeOut }}
         >
-          <SectionHeading label="Tecnologias" title="Ferramentas que utilizo." />
+          <SectionHeading
+            label="Tecnologias"
+            title="Ferramentas que utilizamos."
+            subtitle="Utilizamos tecnologias modernas para construir soluções rápidas, confiáveis e fáceis de evoluir."
+          />
         </motion.div>
 
         <motion.div

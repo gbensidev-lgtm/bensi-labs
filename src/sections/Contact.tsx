@@ -22,8 +22,8 @@ export function Contact() {
         >
           <SectionHeading
             align="center"
-            title="Vamos construir algo."
-            subtitle="Tem uma ideia, problema ou projeto? Vamos conversar."
+            title="Tem um projeto em mente?"
+            subtitle="Conte um pouco sobre o que você precisa. Vamos entender o problema e descobrir juntos qual é a melhor solução."
             subtitleClassName="text-foreground/70"
           />
 
@@ -36,7 +36,7 @@ export function Contact() {
             className="mt-8 flex justify-center"
           >
             <MagneticButton href={whatsappLink} variant="primary">
-              Conversar no WhatsApp →
+              Vamos conversar →
             </MagneticButton>
           </motion.div>
 

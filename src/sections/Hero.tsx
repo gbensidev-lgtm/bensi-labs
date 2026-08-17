@@ -3,7 +3,6 @@
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { HeroVisual } from "@/components/HeroVisual";
 import { MagneticButton } from "@/components/MagneticButton";
-import { whatsappLink } from "@/data/contact";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 18 },
@@ -59,7 +58,7 @@ export function Hero() {
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
               className="mt-4 font-mono text-sm tracking-[0.18em] text-muted uppercase md:text-base"
             >
-              AI Product Engineer · Software · Data
+              AI Product Engineer · Software · Automation
             </motion.p>
 
             <motion.h1
@@ -67,7 +66,11 @@ export function Hero() {
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
               className="mt-6 text-4xl leading-[1.05] font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl"
             >
-              Construindo soluções inteligentes com IA e dados.
+              Transformamos
+              <br />
+              ideias em
+              <br />
+              produtos digitais.
             </motion.h1>
 
             <motion.p
@@ -75,8 +78,8 @@ export function Hero() {
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
               className="mt-6 max-w-xl text-base leading-relaxed text-muted md:text-lg"
             >
-              Desenvolvimento de software, dados e soluções de IA —
-              da ideia ao produto publicado.
+              Sites, landing pages, aplicações e soluções inteligentes
+              desenvolvidas para resolver problemas reais de negócio.
             </motion.p>
 
             <motion.div
@@ -87,8 +90,8 @@ export function Hero() {
               <MagneticButton href="#projects" variant="primary">
                 Ver projetos
               </MagneticButton>
-              <MagneticButton href={whatsappLink} variant="secondary">
-                Conversar no WhatsApp
+              <MagneticButton href="#contact" variant="secondary">
+                Vamos conversar
               </MagneticButton>
             </motion.div>
 

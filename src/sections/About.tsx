@@ -51,30 +51,26 @@ export function About() {
               Sobre
             </p>
             <h2 className="mt-3 text-3xl font-bold tracking-tight text-foreground md:text-4xl lg:text-5xl">
-              Gustavo Bensi
+              Quem está por trás da Bensi Labs.
             </h2>
-            <p className="mt-3 font-mono text-xs tracking-[0.16em] text-muted uppercase md:text-sm">
-              Por trás da{" "}
-              <span className="text-foreground">Bensi</span>{" "}
-              <span className="text-gradient-brand">Labs</span>
-            </p>
 
             <p className="mt-8 text-lg leading-relaxed text-muted md:text-xl">
-              Eu sou Gustavo Bensi. A{" "}
-              <span className="font-semibold text-foreground">Bensi Labs</span> é o
-              laboratório que eu construo — o espaço onde transformo o que estou
-              aprendendo em Estratégia e Desenvolvimento de Soluções de IA em
-              software, dados e produtos digitais.
+              Eu sou Gustavo Bensi, fundador da{" "}
+              <span className="font-semibold text-foreground">Bensi Labs</span>.
             </p>
             <p className="mt-6 text-base leading-relaxed text-muted">
-              Hoje também trabalho com dashboards e análises em empresas, usando
-              código, inteligência artificial e contexto de negócio para transformar
-              problemas reais em soluções que funcionam.
+              Crio produtos digitais combinando desenvolvimento de software,
+              inteligência artificial e compreensão do negócio.
             </p>
             <p className="mt-6 text-base leading-relaxed text-muted">
-              Cada projeto é parte de um processo contínuo: planejar, construir,
-              testar, publicar e evoluir. Não estou tentando parecer especialista em
-              tudo; estou compartilhando o que estou realmente construindo na prática.
+              Meu trabalho começa antes do código: entender o problema, organizar os
+              requisitos, definir a solução e transformar a ideia em um produto que
+              possa ser utilizado, medido e evoluído.
+            </p>
+            <p className="mt-6 text-base leading-relaxed text-muted">
+              A Bensi Labs atua no desenvolvimento de sites, landing pages,
+              aplicações e soluções digitais personalizadas, buscando sempre uma
+              combinação entre experiência, tecnologia e resultado.
             </p>
           </motion.div>
         </div>

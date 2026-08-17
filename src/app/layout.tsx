@@ -17,14 +17,14 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Bensi Labs — AI Product Engineer · Software · Data",
+  title: "Bensi Labs — Sites, Aplicações, IA e Automação",
   description:
-    "Bensi Labs — Gustavo Bensi. Construindo soluções inteligentes com IA e dados.",
+    "A Bensi Labs transforma ideias e problemas de negócio em produtos digitais: sites, landing pages, aplicações e soluções com IA e automação.",
   metadataBase: new URL("https://bensilabs.dev"),
   openGraph: {
-    title: "Bensi Labs — AI Product Engineer · Software · Data",
+    title: "Bensi Labs — Sites, Aplicações, IA e Automação",
     description:
-      "Bensi Labs — Gustavo Bensi. Construindo soluções inteligentes com IA e dados.",
+      "A Bensi Labs transforma ideias e problemas de negócio em produtos digitais: sites, landing pages, aplicações e soluções com IA e automação.",
     type: "website",
     locale: "pt_BR",
     url: "https://bensilabs.dev",
@@ -32,9 +32,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bensi Labs — AI Product Engineer · Software · Data",
+    title: "Bensi Labs — Sites, Aplicações, IA e Automação",
     description:
-      "Bensi Labs — Gustavo Bensi. Construindo soluções inteligentes com IA e dados.",
+      "A Bensi Labs transforma ideias e problemas de negócio em produtos digitais: sites, landing pages, aplicações e soluções com IA e automação.",
   },
 };
 

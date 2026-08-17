@@ -18,9 +18,9 @@ export function SelectedWork() {
           transition={{ duration: 0.6, ease: easeOut }}
         >
           <SectionHeading
-            label="Laboratório"
-            title="Projetos em desenvolvimento"
-            subtitle="Experimentos, produtos e soluções que estou construindo com software, IA e dados — na prática."
+            label="Projetos"
+            title="Projetos que já saíram do papel."
+            subtitle="Produtos digitais e soluções desenvolvidas pela Bensi Labs — da primeira ideia ao produto publicado."
           />
         </motion.div>
 

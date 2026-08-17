@@ -76,9 +76,12 @@ function ProjectCardContent({
           {project.description}
         </p>
 
-        <p className="mt-5 font-mono text-[11px] tracking-[0.16em] text-foreground/70">
-          {project.tags.join(" · ")}
-        </p>
+        {project.tags.length > 0 &&
+          project.tags.join(" · ") !== project.category && (
+            <p className="mt-5 font-mono text-[11px] tracking-[0.16em] text-foreground/70">
+              {project.tags.join(" · ")}
+            </p>
+          )}
 
         <div className="mt-4 flex flex-wrap gap-2">
           {project.technologies.map((tech) => (
@@ -87,7 +90,7 @@ function ProjectCardContent({
         </div>
 
         <div className="mt-6 inline-flex items-center gap-2 font-mono text-xs tracking-[0.16em] text-primary uppercase transition-[gap,transform] duration-200 ease-out group-hover:gap-3">
-          {url && isExternalUrl(url) ? "Explorar projeto" : "Conversar sobre o projeto"}
+          Explorar projeto
           <span
             aria-hidden="true"
             className="transition-transform duration-200 group-hover:translate-x-1"
@@ -114,11 +117,7 @@ export function ProjectCard({ project, index, reversed = false }: ProjectCardPro
         href={project.url}
         target={external ? "_blank" : undefined}
         rel={external ? "noopener noreferrer" : undefined}
-        aria-label={
-          external
-            ? `Explorar projeto ${project.title}`
-            : `Conversar sobre o projeto ${project.title}`
-        }
+        aria-label={`Explorar projeto ${project.title}`}
         className={cn(className, "cursor-pointer")}
       >
         <ProjectCardContent project={project} index={index} reversed={reversed} />
