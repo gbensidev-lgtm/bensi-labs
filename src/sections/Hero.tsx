@@ -90,8 +90,8 @@ export function Hero() {
               <MagneticButton href="#projects" variant="primary">
                 Ver projetos
               </MagneticButton>
-              <MagneticButton href="#contact" variant="secondary">
-                Vamos conversar
+              <MagneticButton href="/briefing" variant="secondary">
+                Começar um projeto
               </MagneticButton>
             </motion.div>
 

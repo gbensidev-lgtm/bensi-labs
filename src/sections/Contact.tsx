@@ -33,10 +33,13 @@ export function Contact() {
             viewport={viewportOnce}
             variants={fadeUp}
             transition={{ duration: 0.6, delay: 0.1, ease: easeOut }}
-            className="mt-8 flex justify-center"
+            className="mt-8 flex flex-wrap justify-center gap-3"
           >
-            <MagneticButton href={whatsappLink} variant="primary">
-              Vamos conversar →
+            <MagneticButton href="/briefing" variant="primary">
+              Começar um projeto
+            </MagneticButton>
+            <MagneticButton href={whatsappLink} variant="secondary">
+              WhatsApp
             </MagneticButton>
           </motion.div>
 

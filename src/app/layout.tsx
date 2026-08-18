@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import { JetBrains_Mono, Space_Grotesk } from "next/font/google";
-import { CursorSpotlight } from "@/components/CursorSpotlight";
-import { Navbar } from "@/components/Navbar";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -45,14 +43,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className={`${spaceGrotesk.variable} ${jetbrainsMono.variable}`}>
-      <body className="bg-background font-sans text-foreground antialiased">
-        <a href="#conteudo" className="skip-link">
-          Ir para o conteúdo
-        </a>
-        <CursorSpotlight />
-        <Navbar />
-        <main id="conteudo">{children}</main>
-      </body>
+      <body className="bg-background font-sans text-foreground antialiased">{children}</body>
     </html>
   );
 }

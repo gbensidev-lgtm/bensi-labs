@@ -1,6 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Logo } from "@/components/Logo";
 import { MagneticButton } from "@/components/MagneticButton";
@@ -8,9 +9,11 @@ import { useActiveSection } from "@/hooks/useActiveSection";
 import { cn, navLinks } from "@/lib/utils";
 
 export function Navbar() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const activeSection = useActiveSection();
+  const onHome = pathname === "/";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -43,12 +46,13 @@ export function Navbar() {
           <ul className="hidden items-center gap-8 md:flex">
             {navLinks.map((link) => {
               const sectionId = link.href.replace("#", "");
-              const isActive = activeSection === sectionId;
+              const isActive = onHome && activeSection === sectionId;
+              const href = onHome ? link.href : `/${link.href}`;
 
               return (
                 <li key={link.href}>
                   <a
-                    href={link.href}
+                    href={href}
                     aria-current={isActive ? "page" : undefined}
                     className={cn(
                       "relative text-sm transition-colors duration-200 after:absolute after:inset-x-0 after:-bottom-1 after:h-px after:origin-left after:bg-primary after:transition-transform after:duration-200 after:ease-out",
@@ -65,8 +69,8 @@ export function Navbar() {
           </ul>
 
           <div className="hidden md:block">
-            <MagneticButton href="#contact" variant="primary">
-              Vamos conversar
+            <MagneticButton href="/briefing" variant="primary">
+              Começar um projeto
             </MagneticButton>
           </div>
 
@@ -115,12 +119,13 @@ export function Navbar() {
             <div className="container flex h-full flex-col gap-2 py-8">
               {navLinks.map((link) => {
                 const sectionId = link.href.replace("#", "");
-                const isActive = activeSection === sectionId;
+                const isActive = onHome && activeSection === sectionId;
+                const href = onHome ? link.href : `/${link.href}`;
 
                 return (
                   <a
                     key={link.href}
-                    href={link.href}
+                    href={href}
                     aria-current={isActive ? "page" : undefined}
                     className={cn(
                       "flex min-h-11 items-center text-lg transition-colors duration-200",
@@ -133,12 +138,12 @@ export function Navbar() {
                 );
               })}
               <MagneticButton
-                href="#contact"
+                href="/briefing"
                 variant="primary"
                 className="mt-4 w-fit"
                 onClick={() => setMobileOpen(false)}
               >
-                Vamos conversar
+                Começar um projeto
               </MagneticButton>
             </div>
           </motion.div>
