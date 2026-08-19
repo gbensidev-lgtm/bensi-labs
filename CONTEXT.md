@@ -2,9 +2,9 @@
 
 > Registro de contexto para retomar o desenvolvimento em outra sessão, janela ou agente.
 >
-> **Última atualização:** 17 de agosto de 2026 (noite)
+> **Última atualização:** 19 de agosto de 2026
 >
-> **Ponto de parada:** Intake / Briefing / Project Context implementado no código. **Ainda não testado em runtime.** SQL do Intake **ainda não foi aplicado** no Supabase. Alterações **ainda não foram commitadas**.
+> **Ponto de parada:** Código do Intake commitado e no GitHub (`0c7b4e8`). `supabase/patch-intake.sql` **já foi aplicado** no projeto Supabase **Bensi Labs**. Tabelas `clients`, `briefings` e `project_documents` existem; `projects` tem `client_id` e `briefing_id`. **`SUPABASE_SERVICE_ROLE_KEY` ainda está vazia no `.env.local`** — sem ela o `POST /api/intake` responde 503. Próximo passo: preencher a service role e testar o fluxo ponta a ponta.
 
 ---
 
@@ -253,14 +253,14 @@ Não usar `contato@bensilabs.dev` / `github.com/bensilabs` até existirem de fat
 
 ## 12. Pendências
 
-### Amanhã — Intake (prioridade)
+### Agora — Intake (prioridade)
 
-1. **Rodar** `supabase/patch-intake.sql` no SQL Editor do Supabase (projeto já existente)
-2. Confirmar `SUPABASE_SERVICE_ROLE_KEY` no `.env.local`
-3. Testar fluxo público: `/briefing` → preencher Landing (e se possível Site / App / IA) → enviar
-4. Testar Studio: login → `/admin/briefings` → em análise → converter → ver projeto + contexto
-5. Segurança: deslogado não acessa `/admin/briefings`; `GET /api/admin/briefings` sem sessão = 401; `/api/intake` GET = 404 e não vaza dados
-6. Só depois: commit (se Gustavo pedir) e ajustes de UX que o teste revelar
+1. [x] Commit + push (`0c7b4e8`)
+2. [x] Rodar `supabase/patch-intake.sql` no projeto **Bensi Labs** (`kpwqezyyacshrubamskp`)
+3. [ ] Preencher `SUPABASE_SERVICE_ROLE_KEY` no `.env.local` (Dashboard → Project Settings → API → `service_role`)
+4. [ ] Testar fluxo público: `/briefing` → preencher Landing (e se possível Site / App / IA) → enviar
+5. [ ] Testar Studio: login → `/admin/briefings` → em análise → converter → ver projeto + contexto
+6. [ ] Segurança: deslogado não acessa `/admin/briefings`; `GET /api/admin/briefings` sem sessão = 401; `/api/intake` GET = 404 e não vaza dados
 
 ### Não implementar ainda (combinado no briefing)
 CRM completo, cobrança, contratos, e-mail automático, WhatsApp automático, IA conversacional, orçamento automático, upload real de arquivos, geração de código, geração completa de docs por LLM.
