@@ -73,8 +73,24 @@ Development agent that consumes Project Context.
 When working on a client project:
 
 ```text
-Studio → Project Context → Cursor → code
+Studio → Project Context zip → Cursor → code
 ```
+
+The Studio exports an authenticated zip from `/api/admin/projects/[id]/context`:
+
+```text
+README.md
+context/PROJECT.md
+context/REQUIREMENTS.md
+context/DESIGN.md
+context/CONTENT.md
+context/INTEGRATIONS.md
+context/USER-FLOWS.md
+context/DECISIONS.md
+context/TODO.md
+```
+
+Open the extracted folder in Cursor. Treat `context/` as the source of truth. Do not invent `PENDING` or `NOT DEFINED` fields.
 
 Do not treat the public marketing site as the source of requirements.
 

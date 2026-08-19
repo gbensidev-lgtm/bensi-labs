@@ -35,7 +35,7 @@ export default async function EditProjectPage({ params }: EditProjectPageProps) 
           }
         />
         <ProjectForm project={project} />
-        <ProjectContext documents={documents} />
+        <ProjectContext projectId={project.id} documents={documents} />
       </div>
     );
   } catch {
