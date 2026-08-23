@@ -31,7 +31,7 @@ Conteúdo de estudo, experimentos, agentes, MCP e machine learning não entra na
 ## Capabilities and Constraints
 
 Confirmado no ar:
-- Projetos: Dashboard Comercial (em desenvolvimento), Raquel Frizo (https://www.raquelfrizo.com.br), Sello Docs (https://sellodocs.com.br).
+- Projetos: Central de Dashboards (em desenvolvimento), Raquel Frizo (https://www.raquelfrizo.com.br), Sello Docs (https://sellodocs.com.br).
 - Serviços anunciados: sites, landing pages, aplicações, IA e automação.
 - Processo: Descoberta → Estratégia → Desenvolvimento → Validação → Publicação.
 
@@ -57,7 +57,7 @@ Aberto: quando (e se) GitHub/LinkedIn voltam ao contato; e-mail e GitHub da marc
 - Marca: `public/brand/`
 - Screenshots: `public/projects/raquel-frizo.webp`, `public/projects/sello-docs.webp`
 - Sites reais: Raquel Frizo e Sello Docs
-- Dashboard Comercial ainda não está publicado; o preview no site é mock
+- Central de Dashboards ainda não está publicado; o preview no site é mock (planilhas / Power BI → hub com acesso da empresa)
 - Não há depoimentos, press ou métricas públicas. Trabalho futuro não deve fabricá-los.
 
 ## Product Principles

@@ -2,9 +2,9 @@
 
 > Registro de contexto para retomar o desenvolvimento em outra sessão, janela ou agente.
 >
-> **Última atualização:** 19 de agosto de 2026
+> **Última atualização:** 23 de agosto de 2026
 >
-> **Ponto de parada:** Código do Intake commitado e no GitHub (`0c7b4e8`). `supabase/patch-intake.sql` **já foi aplicado** no projeto Supabase **Bensi Labs**. Tabelas `clients`, `briefings` e `project_documents` existem; `projects` tem `client_id` e `briefing_id`. **`SUPABASE_SERVICE_ROLE_KEY` ainda está vazia no `.env.local`** — sem ela o `POST /api/intake` responde 503. Próximo passo: preencher a service role e testar o fluxo ponta a ponta.
+> **Ponto de parada:** Intake, Studio e zip do Project Context validados em produção. Em 22/08 consultamos [public-apis](https://github.com/public-apis/public-apis): **não integrar API só para ter integração**. Se for usar alguma, priorizar BrasilAPI (CNPJ/CEP no briefing) e depois Microlink (preview das referências). Nada disso foi implementado ainda. Próximo passo útil continua sendo abrir o zip no Cursor num projeto real.
 
 ---
 
@@ -25,7 +25,8 @@ O produto agora tem **duas camadas que não se misturam**:
 Arquitetura escrita em `docs/ARCHITECTURE.md`.
 
 **Idioma:** Português (Brasil).  
-**Domínio previsto:** `https://bensilabs.dev`  
+**Domínio previsto:** `https://bensilabs.dev` (ainda não apontado)  
+**Produção atual:** https://portifolio-tau-liard.vercel.app  
 **Repositório:** https://github.com/gbensidev-lgtm/bensi-labs (público, branch `main`)
 
 ---
@@ -81,9 +82,9 @@ O Studio **não** é o site. `/admin` é privado, `noindex`.
 
 ---
 
-## 4. O que foi feito em 17/08/2026 — Intake v1
+## 4. Intake v1 — estado validado
 
-Código da primeira versão está no repositório local. Fluxo implementado:
+Fluxo em produção:
 
 ```text
 Cliente no site
@@ -110,7 +111,8 @@ Cliente no site
 - `/admin/clients` e `/admin/clients/[id]`
 - `/admin/briefings` (filtros) e `/admin/briefings/[id]`
 - Ações: em análise, converter em projeto, arquivar
-- Projeto convertido mostra **Project Context** (documentos markdown)
+- Projeto convertido mostra **Project Context** (markdown no Studio)
+- **Baixar contexto** gera zip autenticado: `GET /api/admin/projects/[id]/context`
 - Campos novos em `projects`: `client_id`, `briefing_id`
 
 ### Segurança (v1)
@@ -119,14 +121,33 @@ Cliente no site
 - Insert público via service role no servidor (`src/lib/supabase/admin.ts`)
 - `/admin/*` e `/api/admin/*` exigem sessão
 
+### Zip do Project Context (mão para o Cursor)
+
+```text
+README.md
+context/PROJECT.md
+context/REQUIREMENTS.md
+context/DESIGN.md
+context/CONTENT.md
+context/INTEGRATIONS.md
+context/USER-FLOWS.md
+context/DECISIONS.md
+context/TODO.md
+```
+
+Uso: Studio → Baixar contexto → extrair → Open Folder no Cursor → `context/` é a fonte de verdade.  
+`PENDING` / `NOT DEFINED` = não inventar.
+
+Arquivos: `src/lib/studio/zip.ts`, `src/lib/studio/context-pack.ts`, `src/app/api/admin/projects/[id]/context/route.ts`.
+
 ### Arquivos-chave
 ```
 docs/ARCHITECTURE.md
-supabase/patch-intake.sql          ← RODAR NO SUPABASE AMANHÃ
-supabase/schema.sql                ← já inclui o intake (installs novos)
+supabase/patch-intake.sql          ← já aplicado no projeto Bensi Labs
+supabase/schema.sql
 
-src/lib/intake/*                   tipos, opções, validação, parse, contexto MD
-src/lib/supabase/admin.ts          service role (server-only)
+src/lib/intake/*
+src/lib/supabase/admin.ts
 src/app/(site)/briefing/
 src/app/api/intake/route.ts
 src/app/admin/(studio)/briefings/
@@ -191,7 +212,7 @@ Arquivo editorial: `src/data/projects.ts` (isso é vitrine, **não** é o banco 
 
 | # | Projeto | Status | URL |
 |---|---|---|---|
-| 01 | Dashboard Comercial | Em desenvolvimento | preview mock |
+| 01 | Central de Dashboards | Em desenvolvimento | preview mock |
 | 02 | Raquel Frizo | No ar | https://www.raquelfrizo.com.br |
 | 03 | Sello Docs | No ar | https://sellodocs.com.br |
 
@@ -227,8 +248,16 @@ Não usar `contato@bensilabs.dev` / `github.com/bensilabs` até existirem de fat
 ## 10. Git e publicação
 
 - Remote: `https://github.com/gbensidev-lgtm/bensi-labs`
-- **Vercel ainda não publicado**
-- **Intake v1 ainda não commitado** — só continuar/commitar quando Gustavo pedir
+- Vercel: projeto `gbensidev/portifolio`, alias https://portifolio-tau-liard.vercel.app
+- GitHub conectado à Vercel; deploys em `--prod` via CLI
+- Env na Vercel (Production + Preview): `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_ROLE_KEY`
+- Service role também está no `.env.local` local (nunca versionar)
+- Commits relevantes:
+  - `0c7b4e8` Studio + intake
+  - `95847c6` schema aplicado / gitignore
+  - `2234864` zip do Project Context
+
+Supabase: projeto **Bensi Labs**, ref `kpwqezyyacshrubamskp`, CLI já linkado (`supabase/.temp/`, gitignored).
 
 ---
 
@@ -243,24 +272,48 @@ Não usar `contato@bensilabs.dev` / `github.com/bensilabs` até existirem de fat
 - Bensi Labs Studio criado: login, dashboard, projetos, criativos, templates
 - Schema inicial: `profiles`, `projects`, `creatives`, `templates`
 
-### 17 ago 2026 (esta sessão)
+### 17 ago 2026
 - Intake / Briefing / Clientes / Project Context implementados no código
 - `docs/ARCHITECTURE.md` criado
-- Sessão interrompida uma vez por `resource_exhausted`; trabalho retomado e fechado no código
-- **Parou aqui:** falta aplicar SQL, testar o fluxo ponta a ponta e só então iterar
+
+### 19 ago 2026
+- `patch-intake.sql` aplicado no Supabase Bensi Labs
+- Commit + push; primeiro deploy na Vercel
+- Envio do briefing falhou (503) por service role vazia; chave preenchida local + Vercel; redeploy
+- Gustavo confirmou: intake público funcionou e chegou no Studio
+- Combinado: o contexto vira pasta para o Cursor, não só preview no admin
+- Zip **Baixar contexto** implementado, commit `2234864`, deploy em produção
+
+### 22–23 ago 2026
+- Consulta à lista [public-apis/public-apis](https://github.com/public-apis/public-apis)
+- Decisão: a maior parte da lista não serve à Bensi Labs (site de marketing + Studio operacional)
+- Se integrar no futuro, nesta ordem:
+  1. **[BrasilAPI](https://brasilapi.com.br/)** — CEP, CNPJ, bancos, feriados; enriquecer briefing (empresa/endereço) e reutilizar em projetos de cliente
+  2. **[Microlink](https://microlink.io)** — título/descrição/preview das URLs de referência do intake
+  3. Screenshot API — só se quiser print automático das referências; hoje o repo já usa Playwright
+- Não puxar: Hunter/e-mail (automação de e-mail ficou de fora), CPFHub (LGPD), clima/cotação (não são o produto), logo/Clearbit (opcional e instável)
+- ViaCEP e ReceitaWS existem na lista; BrasilAPI cobre os dois sem espalhar provedor
 
 ---
 
 ## 12. Pendências
 
-### Agora — Intake (prioridade)
+### Intake / Context (feito nesta fase)
 
-1. [x] Commit + push (`0c7b4e8`)
-2. [x] Rodar `supabase/patch-intake.sql` no projeto **Bensi Labs** (`kpwqezyyacshrubamskp`)
-3. [ ] Preencher `SUPABASE_SERVICE_ROLE_KEY` no `.env.local` (Dashboard → Project Settings → API → `service_role`)
-4. [ ] Testar fluxo público: `/briefing` → preencher Landing (e se possível Site / App / IA) → enviar
-5. [ ] Testar Studio: login → `/admin/briefings` → em análise → converter → ver projeto + contexto
-6. [ ] Segurança: deslogado não acessa `/admin/briefings`; `GET /api/admin/briefings` sem sessão = 401; `/api/intake` GET = 404 e não vaza dados
+1. [x] Commit + push do Intake
+2. [x] SQL no Supabase Bensi Labs
+3. [x] Service role no `.env.local` e na Vercel
+4. [x] Teste público: `/briefing` envia e grava
+5. [x] Studio: briefing visível, conversão em projeto
+6. [x] Zip do Project Context em produção
+7. [ ] Gustavo baixar o zip, abrir no Cursor e começar um projeto real com esse contexto
+8. [ ] Testar outros tipos de intake (Site / App / IA) se ainda não cobertos
+9. [ ] Se o login do Studio falhar no domínio da Vercel: incluir `https://portifolio-tau-liard.vercel.app` em Supabase Auth → URL Configuration
+
+### Integrações (avaliado, não implementado)
+- [ ] BrasilAPI no CNPJ/CEP do briefing (primeiro candidato, se Gustavo pedir)
+- [ ] Microlink nos cards de referência do Studio
+- Não implementar API “de vitrine” no site público
 
 ### Não implementar ainda (combinado no briefing)
 CRM completo, cobrança, contratos, e-mail automático, WhatsApp automático, IA conversacional, orçamento automático, upload real de arquivos, geração de código, geração completa de docs por LLM.
@@ -268,21 +321,21 @@ CRM completo, cobrança, contratos, e-mail automático, WhatsApp automático, IA
 Upload: a v1 só **declara** material (nome, tipo, status). Storage de arquivos fica para depois.
 
 ### Outras pendências antigas
-- [ ] Deploy na Vercel e domínio `bensilabs.dev`
+- [ ] Apontar domínio `bensilabs.dev` (site já está na Vercel)
 - [ ] Trocar e-mail/GitHub da marca quando existirem
 - [ ] Revisar tecnologias listadas nos projetos do site (foram inferidas)
 - [ ] Recapturar screenshot da Sello Docs se o visual mudou
 - [ ] README.md do repositório
-- [ ] `PRODUCT.md` ainda descreve o CTA principal como WhatsApp; a home agora prioriza `/briefing`. Atualizar quando o Intake estiver validado.
+- [ ] `PRODUCT.md` ainda descreve o CTA principal como WhatsApp; a home prioriza `/briefing`. Atualizar.
 
 ---
 
-## 13. Como retomar amanhã
+## 13. Como retomar
 
 1. Ler este `CONTEXT.md` e `docs/ARCHITECTURE.md`
-2. **Não reimplementar o Intake** — o código já está no repo
-3. Primeiro: SQL + env + teste do fluxo
-4. `npm run dev` → http://localhost:3000/briefing e http://localhost:3000/admin/briefings
+2. **Não reimplementar Intake, Studio nem o zip** — já estão no ar
+3. Produção: https://portifolio-tau-liard.vercel.app
+4. Próximo trabalho útil: abrir um zip de contexto no Cursor e desenvolver a partir dele; só depois evoluir o pacote (AGENTS.md, sync de decisões, etc.)
 
 **Prompt sugerido:**
-> Estou retomando a Bensi Labs. Leia o CONTEXT.md. A v1 do Intake já está no código. Comece aplicando `supabase/patch-intake.sql` se ainda não rodou, confirme a service role, e teste o fluxo briefing → Studio → converter em projeto. Não reconstrua o que já existe.
+> Estou retomando a Bensi Labs. Leia o CONTEXT.md. Intake, Studio e o zip do Project Context já funcionam em produção. Não reconstrua. Continue a partir de "Pendências".

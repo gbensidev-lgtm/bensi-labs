@@ -18,12 +18,12 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    title: "Dashboard Comercial",
-    slug: "dashboard-comercial",
+    title: "Central de Dashboards",
+    slug: "central-dashboards",
     description:
-      "Central de indicadores comerciais desenvolvida para transformar dados operacionais em uma visão clara da operação e apoiar decisões mais rápidas.",
-    category: "DATA · DASHBOARD · AUTOMATION",
-    tags: ["DATA", "DASHBOARD", "AUTOMATION"],
+      "Planilhas e relatórios de Power BI viram uma central de dashboards — um único lugar para a empresa acompanhar indicadores, com acesso para todo o time.",
+    category: "DATA · DASHBOARD · ACCESS",
+    tags: ["DATA", "DASHBOARD", "ACCESS"],
     technologies: ["React", "TypeScript", "Data Visualization"],
     preview: "dashboard",
     status: "building",
