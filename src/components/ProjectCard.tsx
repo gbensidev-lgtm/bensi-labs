@@ -22,13 +22,16 @@ function ProjectCardContent({
   project,
   index,
   reversed = false,
-}: ProjectCardProps) {
+  textHref,
+}: ProjectCardProps & { textHref?: string }) {
   const number = String(index).padStart(2, "0");
   const url = project.url;
   const frameLabel =
     url && isExternalUrl(url)
       ? url.replace(/^https?:\/\//, "").replace(/\/$/, "")
       : project.slug.replace(/-/g, " / ");
+  const textExternal = isExternalUrl(textHref);
+  const TextWrap = textHref ? "a" : "div";
 
   return (
     <div
@@ -37,7 +40,10 @@ function ProjectCardContent({
         reversed && "md:[&>*:first-child]:order-2",
       )}
     >
-      <div className="overflow-hidden" aria-hidden="true">
+      <div
+        className="overflow-hidden"
+        aria-hidden={project.preview === "dashboard" ? undefined : true}
+      >
         <div className="transition-transform duration-500 ease-out group-hover:-translate-y-1">
           <ProjectCover
             slug={project.slug}
@@ -50,7 +56,13 @@ function ProjectCardContent({
         </div>
       </div>
 
-      <div>
+      <TextWrap
+        href={textHref}
+        target={textHref && textExternal ? "_blank" : undefined}
+        rel={textHref && textExternal ? "noopener noreferrer" : undefined}
+        aria-label={textHref ? `Explorar projeto ${project.title}` : undefined}
+        className={textHref ? "cursor-pointer" : undefined}
+      >
         <div className="flex flex-wrap items-center gap-3">
           <motion.span
             initial={{ opacity: 0, y: 8 }}
@@ -98,18 +110,19 @@ function ProjectCardContent({
             →
           </span>
         </div>
-      </div>
+      </TextWrap>
     </div>
   );
 }
 
 export function ProjectCard({ project, index, reversed = false }: ProjectCardProps) {
   const className = cn(
-    "group block rounded-[calc(var(--radius-card)+8px)] border border-border/70 p-3 transition-[border-color,box-shadow,transform] duration-300 ease-out md:p-4",
+    "group rounded-[calc(var(--radius-card)+8px)] border border-border/70 p-3 transition-[border-color,box-shadow,transform] duration-300 ease-out md:p-4",
     "hover:border-primary/30 hover:shadow-[0_0_0_1px_rgba(37,99,235,0.10),0_24px_80px_rgba(37,99,235,0.08)]",
   );
+  const interactivePreview = project.preview === "dashboard";
 
-  if (project.url) {
+  if (project.url && !interactivePreview) {
     const external = isExternalUrl(project.url);
 
     return (
@@ -118,7 +131,7 @@ export function ProjectCard({ project, index, reversed = false }: ProjectCardPro
         target={external ? "_blank" : undefined}
         rel={external ? "noopener noreferrer" : undefined}
         aria-label={`Explorar projeto ${project.title}`}
-        className={cn(className, "cursor-pointer")}
+        className={cn(className, "block cursor-pointer")}
       >
         <ProjectCardContent project={project} index={index} reversed={reversed} />
       </a>
@@ -127,7 +140,12 @@ export function ProjectCard({ project, index, reversed = false }: ProjectCardPro
 
   return (
     <article className={className}>
-      <ProjectCardContent project={project} index={index} reversed={reversed} />
+      <ProjectCardContent
+        project={project}
+        index={index}
+        reversed={reversed}
+        textHref={interactivePreview ? project.url : undefined}
+      />
     </article>
   );
 }
