@@ -5,6 +5,7 @@ import { useState } from "react";
 import { ExtraStep, ReferencesStep, ReviewStep } from "@/components/intake/final-steps";
 import { IntakeError } from "@/components/intake/fields";
 import { CompanyStep, ProblemStep, SpecificStep, TypeStep } from "@/components/intake/steps";
+import { MagneticButton } from "@/components/MagneticButton";
 import { INTAKE_STEPS } from "@/lib/intake/options";
 import { emptyAnswers, type IntakeAnswers, type ProjectType } from "@/lib/intake/types";
 import { validateStep } from "@/lib/intake/validate";
@@ -136,13 +137,9 @@ export function IntakeFlow() {
           ) : (
             <span />
           )}
-          <button
-            type="submit"
-            disabled={pending}
-            className="inline-flex min-h-11 cursor-pointer items-center justify-center rounded-[var(--radius-button)] border border-primary/25 bg-primary/10 px-5 text-sm font-medium text-foreground transition-colors hover:border-primary/50 hover:bg-primary/18 disabled:cursor-not-allowed disabled:opacity-50"
-          >
+          <MagneticButton type="submit" disabled={pending}>
             {pending ? "Enviando…" : step === TOTAL - 1 ? "Enviar projeto" : "Continuar"}
-          </button>
+          </MagneticButton>
         </div>
       </form>
     </div>

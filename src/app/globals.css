@@ -123,6 +123,15 @@ body {
   }
 }
 
+@keyframes button-shine {
+  from {
+    transform: translateX(-40%) skewX(-20deg);
+  }
+  to {
+    transform: translateX(280%) skewX(-20deg);
+  }
+}
+
 .scroll-hint-arrow {
   display: inline-block;
   animation: scroll-hint 1.8s ease-in-out infinite;

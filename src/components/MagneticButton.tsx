@@ -1,83 +1,87 @@
 "use client";
 
-import { motion, useMotionValue, useSpring } from "framer-motion";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
-type MagneticButtonProps = {
-  href: string;
+type GlowButtonBase = {
   children: React.ReactNode;
   variant?: "primary" | "secondary";
   className?: string;
   onClick?: () => void;
+  disabled?: boolean;
 };
+
+type GlowButtonAsLink = GlowButtonBase & {
+  href: string;
+  type?: never;
+};
+
+type GlowButtonAsButton = GlowButtonBase & {
+  href?: undefined;
+  type?: "button" | "submit";
+};
+
+type MagneticButtonProps = GlowButtonAsLink | GlowButtonAsButton;
 
 const variants = {
   primary:
-    "border border-primary/25 bg-primary/10 text-foreground hover:-translate-y-px hover:border-primary/50 hover:bg-primary/18 hover:shadow-[0_0_24px_rgba(37,99,235,0.14)]",
+    "border border-primary/70 bg-primary text-white shadow-[0_8px_28px_rgba(37,99,235,0.32)] hover:border-primary hover:shadow-[0_12px_36px_rgba(37,99,235,0.42),0_8px_28px_rgba(124,58,237,0.18)]",
   secondary:
-    "border border-border bg-surface text-foreground hover:-translate-y-px hover:border-primary/35 hover:bg-surface/90 hover:shadow-[0_0_20px_rgba(37,99,235,0.08)]",
+    "border border-border bg-surface text-foreground shadow-[0_8px_24px_rgba(15,17,21,0.35)] hover:border-primary/40 hover:shadow-[0_10px_28px_rgba(37,99,235,0.16)]",
 };
 
 export function MagneticButton({
-  href,
   children,
   variant = "primary",
   className,
   onClick,
+  disabled,
+  ...props
 }: MagneticButtonProps) {
-  const ref = useRef<HTMLAnchorElement>(null);
-  const [enabled, setEnabled] = useState(false);
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  const springX = useSpring(x, { stiffness: 300, damping: 20, mass: 0.2 });
-  const springY = useSpring(y, { stiffness: 300, damping: 20, mass: 0.2 });
+  const href = "href" in props ? props.href : undefined;
+  const type = "type" in props ? props.type : undefined;
 
-  useEffect(() => {
-    const media = window.matchMedia("(hover: hover) and (pointer: fine)");
-    const update = () => setEnabled(media.matches);
-    update();
-    media.addEventListener("change", update);
-    return () => media.removeEventListener("change", update);
-  }, []);
+  const content = (
+    <>
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-transparent via-white/35 to-transparent opacity-0 motion-safe:group-hover:animate-[button-shine_0.85s_ease] motion-safe:group-hover:opacity-100"
+      />
+      <span className="relative z-10">{children}</span>
+    </>
+  );
 
-  const handleMove = (event: React.MouseEvent<HTMLAnchorElement>) => {
-    if (!enabled || !ref.current) return;
+  const classes = cn(
+    "group relative inline-flex min-h-11 cursor-pointer items-center justify-center overflow-hidden rounded-[var(--radius-button)] px-5 py-2.5 text-sm font-medium",
+    "transition-[color,background-color,border-color,box-shadow] duration-200 ease-out",
+    "focus-visible:outline-none",
+    "disabled:cursor-not-allowed disabled:opacity-50",
+    variants[variant],
+    className,
+  );
 
-    const rect = ref.current.getBoundingClientRect();
-    const offsetX = event.clientX - (rect.left + rect.width / 2);
-    const offsetY = event.clientY - (rect.top + rect.height / 2);
-
-    x.set(offsetX * 0.15);
-    y.set(offsetY * 0.15);
-  };
-
-  const handleLeave = () => {
-    x.set(0);
-    y.set(0);
-  };
-
-  const isExternal = href.startsWith("http");
+  if (href) {
+    return (
+      <Link
+        href={href}
+        target={href.startsWith("http") ? "_blank" : undefined}
+        rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+        onClick={onClick}
+        className={classes}
+      >
+        {content}
+      </Link>
+    );
+  }
 
   return (
-    <motion.div style={{ x: enabled ? springX : 0, y: enabled ? springY : 0 }}>
-      <Link
-        ref={ref}
-        href={href}
-        target={isExternal ? "_blank" : undefined}
-        rel={isExternal ? "noopener noreferrer" : undefined}
-        onClick={onClick}
-        onMouseMove={handleMove}
-        onMouseLeave={handleLeave}
-        className={cn(
-          "inline-flex min-h-11 cursor-pointer items-center justify-center rounded-[var(--radius-button)] px-5 py-2.5 text-sm font-medium transition-[color,background-color,border-color,box-shadow,transform,filter] duration-200 ease-out hover:brightness-110",
-          variants[variant],
-          className,
-        )}
-      >
-        {children}
-      </Link>
-    </motion.div>
+    <button
+      type={type ?? "button"}
+      disabled={disabled}
+      onClick={onClick}
+      className={classes}
+    >
+      {content}
+    </button>
   );
 }

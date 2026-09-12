@@ -2,7 +2,7 @@
 
 > Registro de contexto para retomar o desenvolvimento em outra sessão, janela ou agente.
 >
-> **Última atualização:** 23 de agosto de 2026
+> **Última atualização:** 6 de setembro de 2026
 >
 > **Ponto de parada:** Intake, Studio e zip do Project Context validados em produção. Em 22/08 consultamos [public-apis](https://github.com/public-apis/public-apis): **não integrar API só para ter integração**. Se for usar alguma, priorizar BrasilAPI (CNPJ/CEP no briefing) e depois Microlink (preview das referências). Nada disso foi implementado ainda. Próximo passo útil continua sendo abrir o zip no Cursor num projeto real.
 
@@ -26,7 +26,7 @@ Arquitetura escrita em `docs/ARCHITECTURE.md`.
 
 **Idioma:** Português (Brasil).  
 **Domínio previsto:** `https://bensilabs.dev` (ainda não apontado)  
-**Produção atual:** https://portifolio-tau-liard.vercel.app  
+**Produção atual:** https://bensi-labs.vercel.app  
 **Repositório:** https://github.com/gbensidev-lgtm/bensi-labs (público, branch `main`)
 
 ---
@@ -248,7 +248,8 @@ Não usar `contato@bensilabs.dev` / `github.com/bensilabs` até existirem de fat
 ## 10. Git e publicação
 
 - Remote: `https://github.com/gbensidev-lgtm/bensi-labs`
-- Vercel: projeto `gbensidev/portifolio`, alias https://portifolio-tau-liard.vercel.app
+- Vercel: um projeto, `bensi-labs`, alias https://bensi-labs.vercel.app
+- O card duplicado `portfolio` (mesmo repo, sem produção) foi apagado em 06/09/2026
 - GitHub conectado à Vercel; deploys em `--prod` via CLI
 - Env na Vercel (Production + Preview): `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_ROLE_KEY`
 - Service role também está no `.env.local` local (nunca versionar)
@@ -294,6 +295,10 @@ Supabase: projeto **Bensi Labs**, ref `kpwqezyyacshrubamskp`, CLI já linkado (`
 - Não puxar: Hunter/e-mail (automação de e-mail ficou de fora), CPFHub (LGPD), clima/cotação (não são o produto), logo/Clearbit (opcional e instável)
 - ViaCEP e ReceitaWS existem na lista; BrasilAPI cobre os dois sem espalhar provedor
 
+### 6 set 2026
+- Na Vercel havia dois projetos no mesmo repo `gbensidev-lgtm/bensi-labs`: `portfolio` (sem produção) e `bensi-labs` (https://bensi-labs.vercel.app)
+- Gustavo apagou o card `portfolio`. Produção oficial: projeto Vercel `bensi-labs`
+
 ---
 
 ## 12. Pendências
@@ -308,7 +313,7 @@ Supabase: projeto **Bensi Labs**, ref `kpwqezyyacshrubamskp`, CLI já linkado (`
 6. [x] Zip do Project Context em produção
 7. [ ] Gustavo baixar o zip, abrir no Cursor e começar um projeto real com esse contexto
 8. [ ] Testar outros tipos de intake (Site / App / IA) se ainda não cobertos
-9. [ ] Se o login do Studio falhar no domínio da Vercel: incluir `https://portifolio-tau-liard.vercel.app` em Supabase Auth → URL Configuration
+9. [ ] Se o login do Studio falhar no domínio da Vercel: incluir `https://bensi-labs.vercel.app` em Supabase Auth → URL Configuration
 
 ### Integrações (avaliado, não implementado)
 - [ ] BrasilAPI no CNPJ/CEP do briefing (primeiro candidato, se Gustavo pedir)
@@ -334,7 +339,7 @@ Upload: a v1 só **declara** material (nome, tipo, status). Storage de arquivos 
 
 1. Ler este `CONTEXT.md` e `docs/ARCHITECTURE.md`
 2. **Não reimplementar Intake, Studio nem o zip** — já estão no ar
-3. Produção: https://portifolio-tau-liard.vercel.app
+3. Produção: https://bensi-labs.vercel.app
 4. Próximo trabalho útil: abrir um zip de contexto no Cursor e desenvolver a partir dele; só depois evoluir o pacote (AGENTS.md, sync de decisões, etc.)
 
 **Prompt sugerido:**

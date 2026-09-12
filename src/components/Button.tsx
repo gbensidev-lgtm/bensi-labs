@@ -11,9 +11,9 @@ type ButtonProps = {
 
 const variants = {
   primary:
-    "border border-primary/20 bg-primary/10 text-foreground hover:border-primary/40 hover:bg-primary/15",
+    "border border-primary/70 bg-primary text-white shadow-[0_8px_28px_rgba(37,99,235,0.32)] hover:border-primary hover:shadow-[0_12px_36px_rgba(37,99,235,0.42),0_8px_28px_rgba(124,58,237,0.18)]",
   secondary:
-    "border border-border bg-surface text-foreground hover:border-primary/30 hover:bg-surface/80",
+    "border border-border bg-surface text-foreground shadow-[0_8px_24px_rgba(15,17,21,0.35)] hover:border-primary/40 hover:shadow-[0_10px_28px_rgba(37,99,235,0.16)]",
   ghost: "border border-transparent text-muted hover:text-foreground hover:border-border/60",
 };
 
@@ -25,7 +25,7 @@ export function Button({
   external,
 }: ButtonProps) {
   const classes = cn(
-    "inline-flex items-center justify-center rounded-[var(--radius-button)] px-5 py-2.5 text-sm font-medium transition-colors duration-200",
+    "relative inline-flex min-h-11 items-center justify-center overflow-hidden rounded-[var(--radius-button)] px-5 py-2.5 text-sm font-medium transition-[color,background-color,border-color,box-shadow] duration-200",
     variants[variant],
     className,
   );
