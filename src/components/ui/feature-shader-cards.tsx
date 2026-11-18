@@ -60,6 +60,16 @@ const brandShaders: ShaderConfig[] = [
     shapeScale: 0.11,
     colors: ["#1C1F26", "#2563EB", "#0F1115", "#7C3AED"],
   },
+  {
+    proportion: 0.38,
+    softness: 1,
+    distortion: 0.17,
+    swirl: 0.66,
+    swirlIterations: 10,
+    shape: "stripes",
+    shapeScale: 0.09,
+    colors: ["#0F1115", "#7C3AED", "#1C1F26", "#2563EB"],
+  },
 ];
 
 function getShaderConfig(index: number) {

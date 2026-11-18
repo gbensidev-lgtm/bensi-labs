@@ -78,8 +78,8 @@ export function Hero() {
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
               className="mt-6 max-w-xl text-base leading-relaxed text-muted md:text-lg"
             >
-              Sites, landing pages, aplicações e soluções inteligentes
-              desenvolvidas para resolver problemas reais de negócio.
+              Sites, landing pages, aplicações, redes sociais e soluções
+              inteligentes desenvolvidas para resolver problemas reais de negócio.
             </motion.p>
 
             <motion.div

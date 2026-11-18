@@ -69,8 +69,9 @@ export function About() {
             </p>
             <p className="mt-6 text-base leading-relaxed text-muted">
               A Bensi Labs atua no desenvolvimento de sites, landing pages,
-              aplicações e soluções digitais personalizadas, buscando sempre uma
-              combinação entre experiência, tecnologia e resultado.
+              aplicações, automação de conteúdo para redes sociais e soluções
+              digitais personalizadas, buscando sempre uma combinação entre
+              experiência, tecnologia e resultado.
             </p>
           </motion.div>
         </div>

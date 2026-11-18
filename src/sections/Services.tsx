@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { AppWindow, Globe, LayoutTemplate, Sparkles } from "lucide-react";
+import { AppWindow, CalendarClock, Globe, LayoutTemplate, Sparkles } from "lucide-react";
 import { SectionHeading } from "@/components/SectionHeading";
 import FeaturesCards from "@/components/ui/feature-shader-cards";
 import { services } from "@/data/services";
@@ -11,6 +11,7 @@ const serviceIcons = {
   Sites: Globe,
   "Landing Pages": LayoutTemplate,
   Aplicações: AppWindow,
+  "Redes Sociais": CalendarClock,
   "IA & Automação": Sparkles,
 } as const;
 

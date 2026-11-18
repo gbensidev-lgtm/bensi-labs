@@ -46,7 +46,7 @@ export default function OpenGraphImage() {
             Transformamos ideias em produtos digitais.
           </div>
           <div style={{ fontSize: 26, lineHeight: 1.5, color: "#9CA3AF" }}>
-            Sites, landing pages, aplicações e soluções com IA e automação.
+            Sites, landing pages, redes sociais e soluções com IA e automação.
           </div>
         </div>
 

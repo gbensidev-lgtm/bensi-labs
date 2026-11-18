@@ -170,7 +170,7 @@ Ordem atual em `src/app/(site)/page.tsx`:
 | — | Navbar | — | `components/Navbar.tsx` |
 | 1 | Hero | `#hero` | `sections/Hero.tsx` |
 | 2 | Projetos | `#projects` | `sections/SelectedWork.tsx` |
-| 3 | Serviços | `#services` | `sections/Services.tsx` |
+| 3 | Serviços | `#services` | `sections/Services.tsx` — Sites, Landing Pages, Aplicações, Redes Sociais, IA & Automação |
 | 4 | Sobre | `#about` | `sections/About.tsx` |
 | 5 | Processo | `#process` | `sections/Process.tsx` |
 | 6 | Construindo com IA | `#ai-development` | `sections/BuildingWithAI.tsx` |

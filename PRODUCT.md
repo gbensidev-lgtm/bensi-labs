@@ -12,7 +12,7 @@ Visitante principal: empresa, profissional ou negócio que precisa transformar u
 
 ## Product Purpose
 
-A Bensi Labs é um AI Product Studio / Technology Lab liderado por Gustavo Bensi. Transforma ideias e problemas de negócio em produtos digitais: sites, landing pages, aplicações, soluções com IA, automação e integrações.
+A Bensi Labs é um AI Product Studio / Technology Lab liderado por Gustavo Bensi. Transforma ideias e problemas de negócio em produtos digitais: sites, landing pages, aplicações, conteúdo e automação para redes sociais, soluções com IA, automação e integrações.
 
 Sucesso: o visitante entende o que a Bensi Labs faz, vê projetos reais e chama no WhatsApp para conversar sobre um projeto.
 
@@ -32,7 +32,7 @@ Conteúdo de estudo, experimentos, agentes, MCP e machine learning não entra na
 
 Confirmado no ar:
 - Projetos: Vitall Contabilidade (https://vitallcontabilidade.com.br), Central de Dashboards (em desenvolvimento), Raquel Frizo (https://www.raquelfrizo.com.br), Sello Docs (https://sellodocs.com.br).
-- Serviços anunciados: sites, landing pages, aplicações, IA e automação.
+- Serviços anunciados: sites, landing pages, aplicações, redes sociais (criação, planejamento e agendamento de postagens para Instagram, Facebook e LinkedIn), IA e automação.
 - Processo: Descoberta → Estratégia → Desenvolvimento → Validação → Publicação.
 
 Restrições duráveis:

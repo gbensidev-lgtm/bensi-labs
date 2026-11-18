@@ -15,14 +15,14 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Bensi Labs — Sites, Aplicações, IA e Automação",
+  title: "Bensi Labs — Sites, Redes Sociais, IA e Automação",
   description:
-    "A Bensi Labs transforma ideias e problemas de negócio em produtos digitais: sites, landing pages, aplicações e soluções com IA e automação.",
+    "A Bensi Labs transforma ideias e problemas de negócio em produtos digitais: sites, landing pages, aplicações, conteúdo para redes sociais e soluções com IA e automação.",
   metadataBase: new URL("https://bensilabs.dev"),
   openGraph: {
-    title: "Bensi Labs — Sites, Aplicações, IA e Automação",
+    title: "Bensi Labs — Sites, Redes Sociais, IA e Automação",
     description:
-      "A Bensi Labs transforma ideias e problemas de negócio em produtos digitais: sites, landing pages, aplicações e soluções com IA e automação.",
+      "A Bensi Labs transforma ideias e problemas de negócio em produtos digitais: sites, landing pages, aplicações, conteúdo para redes sociais e soluções com IA e automação.",
     type: "website",
     locale: "pt_BR",
     url: "https://bensilabs.dev",
@@ -30,9 +30,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bensi Labs — Sites, Aplicações, IA e Automação",
+    title: "Bensi Labs — Sites, Redes Sociais, IA e Automação",
     description:
-      "A Bensi Labs transforma ideias e problemas de negócio em produtos digitais: sites, landing pages, aplicações e soluções com IA e automação.",
+      "A Bensi Labs transforma ideias e problemas de negócio em produtos digitais: sites, landing pages, aplicações, conteúdo para redes sociais e soluções com IA e automação.",
   },
 };
 

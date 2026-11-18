@@ -20,6 +20,11 @@ export const services: Service[] = [
       "Sistemas e ferramentas personalizadas para organizar processos, dados e operações.",
   },
   {
+    title: "Redes Sociais",
+    description:
+      "Criação, planejamento e agendamento de postagens para Instagram, Facebook e LinkedIn — com identidade da marca, calendário editorial e publicação automática.",
+  },
+  {
     title: "IA & Automação",
     description:
       "Integrações e soluções inteligentes para reduzir tarefas manuais e ampliar a capacidade dos processos.",
