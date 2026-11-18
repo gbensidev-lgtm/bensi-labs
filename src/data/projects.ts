@@ -18,6 +18,20 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    title: "Vitall Contabilidade",
+    slug: "vitall-contabilidade",
+    description:
+      "Site institucional para contabilidade e gestão empresarial — desenvolvido para apresentar serviços, segmentos e consultoria em ERP, e levar o contato para o WhatsApp.",
+    category: "WEBSITE · INSTITUTIONAL · DIGITAL PRESENCE",
+    tags: ["WEBSITE", "INSTITUTIONAL", "DIGITAL PRESENCE"],
+    technologies: ["Next.js", "React", "Tailwind CSS"],
+    image: "/projects/vitall-contabilidade.webp",
+    preview: "image",
+    status: "live",
+    url: "https://vitallcontabilidade.com.br",
+    featured: true,
+  },
+  {
     title: "Central de Dashboards",
     slug: "central-dashboards",
     description:

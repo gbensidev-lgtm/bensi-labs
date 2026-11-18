@@ -212,9 +212,10 @@ Arquivo editorial: `src/data/projects.ts` (isso é vitrine, **não** é o banco 
 
 | # | Projeto | Status | URL |
 |---|---|---|---|
-| 01 | Central de Dashboards | Em desenvolvimento | preview mock |
-| 02 | Raquel Frizo | No ar | https://www.raquelfrizo.com.br |
-| 03 | Sello Docs | No ar | https://sellodocs.com.br |
+| 01 | Vitall Contabilidade | No ar | https://vitallcontabilidade.com.br |
+| 02 | Central de Dashboards | Em desenvolvimento | preview mock |
+| 03 | Raquel Frizo | No ar | https://www.raquelfrizo.com.br |
+| 04 | Sello Docs | No ar | https://sellodocs.com.br |
 
 ---
 

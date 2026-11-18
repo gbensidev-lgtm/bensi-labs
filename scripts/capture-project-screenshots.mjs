@@ -8,6 +8,10 @@ const outputDir = path.join(__dirname, "../public/projects");
 
 const sites = [
   {
+    slug: "vitall-contabilidade",
+    url: "https://vitallcontabilidade.com.br",
+  },
+  {
     slug: "raquel-frizo",
     url: "https://www.raquelfrizo.com.br",
   },

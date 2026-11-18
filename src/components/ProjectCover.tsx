@@ -17,6 +17,7 @@ type ProjectCoverProps = {
 };
 
 const coverAccents: Record<string, string> = {
+  "vitall-contabilidade": "from-[#C8102E]/20 via-primary/10 to-transparent",
   "raquel-frizo": "from-[#E8B4BC]/15 via-primary/10 to-transparent",
   "sello-docs": "from-primary/25 via-primary/10 to-transparent",
   "central-dashboards": "from-primary/20 via-secondary/10 to-transparent",
