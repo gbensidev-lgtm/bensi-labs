@@ -6,8 +6,8 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export const navLinks = [
-  { label: "Projetos", href: "#projects" },
-  { label: "Serviços", href: "#services" },
   { label: "Sobre", href: "#about" },
+  { label: "Serviços", href: "#services" },
+  { label: "Projetos", href: "#projects" },
   { label: "Contato", href: "#contact" },
 ] as const;

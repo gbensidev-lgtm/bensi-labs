@@ -1,8 +1,10 @@
 "use client";
 
+import { Mail, MessageCircle } from "lucide-react";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
-import { HeroVisual } from "@/components/HeroVisual";
+import { HeroPortrait } from "@/components/HeroPortrait";
 import { MagneticButton } from "@/components/MagneticButton";
+import { contactLinks } from "@/data/contact";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 18 },
@@ -18,6 +20,11 @@ const container = {
     },
   },
 };
+
+const contactIcons = {
+  WhatsApp: MessageCircle,
+  "E-mail": Mail,
+} as const;
 
 export function Hero() {
   const reduceMotion = useReducedMotion();
@@ -37,7 +44,7 @@ export function Hero() {
       </motion.div>
 
       <div className="container relative z-10">
-        <div className="grid items-center gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+        <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
           <motion.div
             variants={container}
             initial="hidden"
@@ -48,7 +55,7 @@ export function Hero() {
             <motion.p
               variants={fadeUp}
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-              className="font-mono text-sm tracking-[0.28em] text-primary uppercase md:text-base"
+              className="text-sm font-semibold tracking-[0.08em] text-primary uppercase md:text-base"
             >
               Bensi Labs
             </motion.p>
@@ -56,7 +63,7 @@ export function Hero() {
             <motion.p
               variants={fadeUp}
               transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-              className="mt-4 font-mono text-sm tracking-[0.18em] text-muted uppercase md:text-base"
+              className="mt-3 text-sm tracking-wide text-muted md:text-base"
             >
               AI Product Engineer · Software · Automation
             </motion.p>
@@ -66,11 +73,9 @@ export function Hero() {
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
               className="mt-6 text-4xl leading-[1.05] font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl"
             >
-              Transformamos
-              <br />
-              ideias em
-              <br />
-              produtos digitais.
+              Transformamos{" "}
+              <span className="text-primary">ideias</span> em{" "}
+              <span className="text-primary">produtos digitais</span>.
             </motion.h1>
 
             <motion.p
@@ -95,27 +100,38 @@ export function Hero() {
               </MagneticButton>
             </motion.div>
 
-            <motion.a
+            <motion.ul
               variants={fadeUp}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              href="#projects"
-              className="mt-12 inline-flex items-center gap-2 font-mono text-xs tracking-[0.2em] text-muted uppercase transition-colors duration-200 hover:text-foreground"
+              className="mt-8 flex items-center gap-3"
             >
-              Explore os projetos
-              <span aria-hidden="true" className="scroll-hint-arrow">
-                ↓
-              </span>
-            </motion.a>
+              {contactLinks.map((link) => {
+                const Icon = contactIcons[link.label as keyof typeof contactIcons];
+                return (
+                  <li key={link.label}>
+                    <a
+                      href={link.href}
+                      target={link.external ? "_blank" : undefined}
+                      rel={link.external ? "noopener noreferrer" : undefined}
+                      aria-label={link.label}
+                      className="inline-flex size-11 items-center justify-center rounded-[var(--radius-button)] border border-border bg-surface/70 text-muted transition-[border-color,color,background-color] duration-200 hover:border-primary/35 hover:bg-primary/10 hover:text-primary"
+                    >
+                      {Icon ? <Icon className="size-5" strokeWidth={1.6} /> : link.label}
+                    </a>
+                  </li>
+                );
+              })}
+            </motion.ul>
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             style={{ y: visualY }}
-            transition={{ duration: 0.8, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.8, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
             className="relative will-change-transform"
           >
-            <HeroVisual />
+            <HeroPortrait />
           </motion.div>
         </div>
       </div>

@@ -36,39 +36,39 @@ export function Navbar() {
         className={cn(
           "border-b transition-colors duration-300",
           scrolled
-            ? "border-border/60 bg-background/75 backdrop-blur-md"
+            ? "border-border/60 bg-background/80 backdrop-blur-md"
             : "border-transparent bg-transparent",
         )}
       >
         <div className="container flex h-16 items-center justify-between gap-4 md:h-[4.5rem]">
           <Logo priority size="nav" />
 
-          <ul className="hidden items-center gap-8 md:flex">
-            {navLinks.map((link) => {
-              const sectionId = link.href.replace("#", "");
-              const isActive = onHome && activeSection === sectionId;
-              const href = onHome ? link.href : `/${link.href}`;
+          <div className="hidden items-center gap-8 md:flex">
+            <ul className="flex items-center gap-7">
+              {navLinks.map((link) => {
+                const sectionId = link.href.replace("#", "");
+                const isActive = onHome && activeSection === sectionId;
+                const href = onHome ? link.href : `/${link.href}`;
 
-              return (
-                <li key={link.href}>
-                  <a
-                    href={href}
-                    aria-current={isActive ? "page" : undefined}
-                    className={cn(
-                      "relative text-sm transition-colors duration-200 after:absolute after:inset-x-0 after:-bottom-1 after:h-px after:origin-left after:bg-primary after:transition-transform after:duration-200 after:ease-out",
-                      isActive
-                        ? "text-foreground after:scale-x-100"
-                        : "text-muted after:scale-x-0 hover:text-foreground hover:after:scale-x-100",
-                    )}
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
+                return (
+                  <li key={link.href}>
+                    <a
+                      href={href}
+                      aria-current={isActive ? "page" : undefined}
+                      className={cn(
+                        "relative text-sm transition-colors duration-200 after:absolute after:inset-x-0 after:-bottom-1 after:h-px after:origin-left after:bg-primary after:transition-transform after:duration-200 after:ease-out",
+                        isActive
+                          ? "text-foreground after:scale-x-100"
+                          : "text-muted after:scale-x-0 hover:text-foreground hover:after:scale-x-100",
+                      )}
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
 
-          <div className="hidden md:block">
             <MagneticButton href="/briefing" variant="primary">
               Começar um projeto
             </MagneticButton>

@@ -18,7 +18,6 @@ export function SelectedWork() {
           transition={{ duration: 0.6, ease: easeOut }}
         >
           <SectionHeading
-            label="Projetos"
             title="Projetos que já saíram do papel."
             subtitle="Produtos digitais e soluções desenvolvidas pela Bensi Labs — da primeira ideia ao produto publicado."
           />
@@ -29,19 +28,15 @@ export function SelectedWork() {
           whileInView="visible"
           viewport={viewportOnce}
           variants={staggerContainer}
-          className="mt-14 flex flex-col gap-16 md:mt-20 md:gap-28"
+          className="mt-12 grid gap-5 md:grid-cols-2"
         >
           {featuredProjects.map((project, index) => (
             <motion.div
               key={project.slug}
               variants={fadeUp}
-              transition={{ duration: 0.6, ease: easeOut }}
+              transition={{ duration: 0.55, ease: easeOut }}
             >
-              <ProjectCard
-                project={project}
-                index={index + 1}
-                reversed={index % 2 === 1}
-              />
+              <ProjectCard project={project} index={index + 1} />
             </motion.div>
           ))}
         </motion.div>

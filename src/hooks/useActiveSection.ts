@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-const sectionIds = ["projects", "services", "about", "contact"];
+const sectionIds = ["about", "services", "projects", "contact"];
 
 export function useActiveSection() {
   const [activeSection, setActiveSection] = useState<string>("");

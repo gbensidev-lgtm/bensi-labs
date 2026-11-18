@@ -12,9 +12,9 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <SelectedWork />
-      <Services />
       <About />
+      <Services />
+      <SelectedWork />
       <Process />
       <BuildingWithAI />
       <Stack />
